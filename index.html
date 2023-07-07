@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>使命召唤 Online</title>
+  <title>codol.dev</title>
   <style>
     /* Add CSS styles for animations and layout */
     body {
@@ -35,8 +35,8 @@
     }
 
     .loading-animation {
-      width: 100px;
-      height: 100px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
       border: 4px solid #fff;
       border-top-color: transparent;
@@ -97,14 +97,20 @@
       margin-top: 10px;
     }
 
-    .download-button {
+    .download-buttons {
+      display: flex;
+      justify-content: center;
       margin-top: 30px;
+    }
+
+    .download-button {
       background-color: #1a73e8;
       color: #fff;
       font-size: 24px;
       padding: 10px 20px;
       border-radius: 5px;
       text-decoration: none;
+      margin: 0 10px;
     }
 
     .download-button:hover {
@@ -171,7 +177,7 @@
           title.innerText = 'Call of Duty Online';
         });
         descriptions.forEach(function(description) {
-          description.innerText = 'Please note that this is for Development use only';
+          description.innerText = 'This is for Development use only';
         });
         translationButton.innerText = 'EN';
       } else {
@@ -179,7 +185,7 @@
           title.innerText = '使命召唤Online';
         });
         descriptions.forEach(function(description) {
-          description.innerText = '请注意，这仅供开发使用';
+          description.innerText = '这是供开发使用';
         });
         translationButton.innerText = '中文';
       }
@@ -194,8 +200,11 @@
   <div class="container hidden">
     <img class="floating-animation" src="floating-animation.png" alt="Floating Animation">
     <img class="title" src="custom-title.png" alt="Custom Title">
-    <p class="description">Please note that this is for Development use only</p>
-    <a class="download-button" href="https://drive.google.com/u/2/uc?id=1-3TKK0QVxdNYbe4NXhwgr4diHhLowgDN&export=download">Download</a>
+    <p class="description">This is for Development use only</p>
+    <div class="download-buttons">
+      <a class="download-button" href="download-link-1.exe">FULL Client + WeGame</a>
+      <a class="download-button" href="download-link-2.exe">DLC MAPS MP + ZM</a>
+    </div>
     <a class="translation-button" href="#" onclick="toggleTranslation()">中文</a>
   </div>
 
@@ -206,3 +215,4 @@
   <a href="https://github.com/emokid99/codol.dev" style="position: fixed; bottom: 20px; right: 20px; color: #fff; text-decoration: none; font-size: 16px;">codol.dev</a>
 </body>
 </html>
+
