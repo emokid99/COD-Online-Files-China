@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>使命召唤 Online</title>
+  <style>
+    /* Add CSS styles for animations and layout */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      overflow: hidden;
+    }
+
+    .loading-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      animation: fade 2s ease-in-out;
+    }
+
+    @keyframes fade {
+      0% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+    .loading-animation {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      border-top-color: transparent;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: #fff;
+      text-align: center;
+      position: relative;
+    }
+
+    .floating-animation {
+      position: absolute;
+      top: 70px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateX(-50%) translateY(0);
+      }
+      50% {
+        transform: translateX(-50%) translateY(-10px);
+      }
+      100% {
+        transform: translateX(-50%) translateY(0);
+      }
+    }
+
+    .title {
+      font-size: 72px;
+      margin-top: 20px;
+    }
+
+    .description {
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    .download-button {
+      margin-top: 30px;
+      background-color: #1a73e8;
+      color: #fff;
+      font-size: 24px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .download-button:hover {
+      background-color: #0d47a1;
+    }
+
+    .translation-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: #1a73e8;
+      color: #fff;
+      font-size: 16px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .translation-button:hover {
+      background-color: #0d47a1;
+    }
+
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      filter: blur(2px);
+    }
+
+    .video-background video {
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+    }
+  </style>
+  <script>
+    // Add JavaScript to play music and hide loading animation on page load
+    window.addEventListener('DOMContentLoaded', (event) => {
+      var audio = new Audio('background-music.mp3');
+      audio.loop = true;
+      audio.volume = 0.5;
+      audio.play();
+
+      var loadingContainer = document.querySelector('.loading-container');
+      var container = document.querySelector('.container');
+
+      setTimeout(function() {
+        loadingContainer.classList.add('hidden');
+        container.classList.remove('hidden');
+      }, 2000);
+    });
+
+    // Function to toggle between Chinese and English text
+    function toggleTranslation() {
+      var titles = document.querySelectorAll('.title');
+      var descriptions = document.querySelectorAll('.description');
+      var translationButton = document.querySelector('.translation-button');
+      
+      if (translationButton.innerText === '中文') {
+        titles.forEach(function(title) {
+          title.innerText = 'Call of Duty Online';
+        });
+        descriptions.forEach(function(description) {
+          description.innerText = 'Please note that this is for Development use only';
+        });
+        translationButton.innerText = 'EN';
+      } else {
+        titles.forEach(function(title) {
+          title.innerText = '使命召唤Online';
+        });
+        descriptions.forEach(function(description) {
+          description.innerText = '请注意，这仅供开发使用';
+        });
+        translationButton.innerText = '中文';
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="loading-container">
+    <div class="loading-animation"></div>
+  </div>
+
+  <div class="container hidden">
+    <img class="floating-animation" src="floating-animation.png" alt="Floating Animation">
+    <img class="title" src="custom-title.png" alt="Custom Title">
+    <p class="description">Please note that this is for Development use only</p>
+    <a class="download-button" href="https://drive.google.com/u/2/uc?id=1-3TKK0QVxdNYbe4NXhwgr4diHhLowgDN&export=download">Download</a>
+    <a class="translation-button" href="#" onclick="toggleTranslation()">中文</a>
+  </div>
+
+  <div class="video-background">
+    <video src="background-video.mp4" autoplay loop muted></video>
+  </div>
+
+  <a href="http://codol.dev" style="position: fixed; bottom: 20px; right: 20px; color: #fff; text-decoration: none; font-size: 16px;">codol.dev</a>
+</body>
+</html>
