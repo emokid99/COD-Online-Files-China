@@ -5,4 +5,4 @@ Please note that this download is for Development use ONLY!
 
 Website - https://emokid99.github.io/codol.dev/
 
-![codol shot](https://github.com/emokid99/codol.dev/assets/46846645/0eec024a-4fd7-4cb8-b9db-78a01489d533)
+![codol_logo](https://github.com/emokid99/codol.dev/assets/46846645/56bccd2d-5884-4b75-8895-e974105230d1)
