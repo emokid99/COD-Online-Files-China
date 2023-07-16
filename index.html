@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>codol.dev</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    #intro-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 9999;
+    }
+
+    .loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 1;
+      animation: fade-in 2s forwards;
+      z-index: 9998;
+    }
+
+    @keyframes fade-in {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+    .loading-animation {
+      width: 50px;
+      height: 50px;
+      border: 4px solid #fff;
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      animation: fade-in 2s forwards;
+      z-index: 9997;
+    }
+
+    .title {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 256px;
+      height: 256px;
+      background: url(title.png) no-repeat center;
+    }
+
+    .download-buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-top: 50px;
+      opacity: 0;
+      animation: fade-in 2s forwards;
+    }
+
+    .download-button {
+      font-size: 24px;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 5px;
+      background-color: #1a73e8;
+      color: #fff;
+      text-decoration: none;
+      opacity: 0;
+      animation: fade-in 2s forwards;
+    }
+
+    .description {
+      text-align: center;
+      margin-top: 30px;
+      opacity: 0;
+      animation: fade-in 2s forwards;
+      color: #fff;
+    }
+
+    .footer {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      opacity: 0;
+      animation: fade-in 2s forwards;
+      z-index: 9999;
+    }
+
+    .footer-link {
+      display: inline-block;
+      width: 128px;
+      height: 128px;
+      background-size: cover;
+      text-indent: -9999px;
+      overflow: hidden;
+      text-decoration: none;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .footer-link:hover {
+      opacity: 0.8;
+    }
+  </style>
+  <script>
+    window.addEventListener("DOMContentLoaded", function() {
+      var introVideo = document.getElementById("intro-video");
+      var loadingScreen = document.querySelector(".loading-screen");
+      var container = document.querySelector(".container");
+      var downloadButtons = document.querySelector(".download-buttons");
+
+      introVideo.addEventListener("loadeddata", function() {
+        introVideo.play();
+      });
+
+      introVideo.addEventListener("ended", function() {
+        introVideo.style.display = "none";
+        document.body.style.backgroundColor = "#000";
+        loadingScreen.classList.add("visible");
+        setTimeout(function() {
+          loadingScreen.style.opacity = 0;
+          container.style.opacity = 1;
+          downloadButtons.style.opacity = 1;
+          setTimeout(function() {
+            loadingScreen.style.display = "none";
+          }, 1000);
+        }, 3000);
+      });
+    });
+  </script>
+</head>
+<body>
+  <video id="intro-video" src="intro-video.mp4" autoplay></video>
+
+  <div class="loading-screen">
+    <div class="loading-animation"></div>
+  </div>
+
+  <div class="container">
+    <div class="title"></div>
+    <div class="download-buttons">
+      <a class="download-button" href="https://mega.nz/file/NLkXxDoL#wXlhh9CxPk2tgPGnWQGJAPT5FBap1a6kzV4fHJG6RxM">FULL Client</a>
+      <a class="download-button" href="https://emokid99.github.io/lol/">DLCS COMING SOON</a>
+    </div>
+    <p class="description">call of duty online will be reborn...</p>
+    <div class="footer">
+      <a class="footer-link" href="https://discord.gg/emfZ7jbNcG"><img src="icon1.png" alt="Icon 1"></a>
+      <a class="footer-link" href="https://example.com"><img src="icon2.png" alt="Icon 2"></a>
+    </div>
+  </div>
+</body>
+</html>
