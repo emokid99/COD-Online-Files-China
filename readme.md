@@ -1,5 +1,6 @@
 Check out in MEGA to download Call of Duty Online
 Please note that this download is for Development use ONLY!
+And this game will not work AT ALL if you try to launch it....
 
 请访问我的网站下载《使命召唤 Online》请注意，此下载仅供开发使用！网站
 
